@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>LinkedIn Redirect</title>
+  <script>
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const code = params.get("code");
+      const state = params.get("state");
+      const error = params.get("error");
+      const errorDescription = params.get("error_description");
+
+      let appUrl = "resumebuilder://linkedin";
+
+      if (error) {
+        const q = new URLSearchParams({
+          error,
+          error_description: errorDescription || ""
+        });
+        window.location.replace(appUrl + "?" + q.toString());
+        return;
+      }
+
+      if (code) {
+        const q = new URLSearchParams({
+          code,
+          state: state || ""
+        });
+        window.location.replace(appUrl + "?" + q.toString());
+        return;
+      }
+
+      document.body.innerText = "Authorization response not found.";
+    })();
+  </script>
+</head>
+<body>
+Redirecting to app...
+</body>
+</html>
