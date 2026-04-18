@@ -1,112 +1,340 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - AI Resume Builder & ATS Scan</title>
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.7;
-            color: #333;
-            background: #f8f9fa;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: #fff;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-        }
-        h1 {
-            font-size: 28px;
-            color: #1a1a2e;
-            margin-bottom: 8px;
-        }
-        .updated {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 30px;
-        }
-        h2 {
-            font-size: 20px;
-            color: #1a1a2e;
-            margin-top: 30px;
-            margin-bottom: 12px;
-        }
-        p, li {
-            font-size: 15px;
-            margin-bottom: 10px;
-        }
-        ul {
-            padding-left: 24px;
-            margin-bottom: 16px;
-        }
-        a { color: #4361ee; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy - Resume Builder & ATS Scanner</title>
+  <meta
+    name="description"
+    content="Privacy Policy for Resume Builder & ATS Scanner"
+  />
+  <style>
+    :root {
+      --bg: #f2f2f7;
+      --card: #ffffff;
+      --text: #111827;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --accent: #50c878;
+      --accent-bg: #e8f5e9;
+      --shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI",
+        Roboto, Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .page {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px 16px 56px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 20px 0 24px;
+    }
+
+    .icon-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 999px;
+      background: var(--accent-bg);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 32px;
+      line-height: 1.2;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .updated {
+      margin-top: 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 28px 22px;
+      box-shadow: var(--shadow);
+    }
+
+    .intro {
+      font-size: 15px;
+      margin: 0 0 24px;
+    }
+
+    .section {
+      margin-bottom: 26px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.35;
+      font-weight: 800;
+    }
+
+    p {
+      margin: 0 0 12px;
+      font-size: 15px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-block {
+      white-space: pre-line;
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 24px 12px 40px;
+      }
+
+      .card {
+        padding: 22px 16px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 18px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Privacy Policy</h1>
-        <p class="updated">Last updated: March 14, 2026</p>
-        <p><strong>AI Resume Builder & ATS Scan</strong> ("we", "our", "the App") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information.</p>
+  <main class="page">
+    <header class="hero">
+      <div class="icon-circle">🛡️</div>
+      <h1>Privacy Policy</h1>
+      <div class="updated">Last updated: April 12, 2026</div>
+    </header>
 
+    <section class="card">
+      <p class="intro">
+        Resume Builder &amp; ATS Scanner ("we", "our", or "us") respects your
+        privacy and is committed to being transparent about how resume data,
+        imported files, and AI-generated content are handled when you use our
+        mobile application.
+      </p>
+
+      <section class="section">
         <h2>1. Information We Collect</h2>
         <ul>
-            <li><strong>Account Information:</strong> When you sign up, we collect your email address and display name via email/password, Google Sign-In, or Facebook Login.</li>
-            <li><strong>Resume Data:</strong> Personal information you enter into your resumes (name, work experience, education, skills, etc.) is stored securely in Firebase.</li>
-            <li><strong>Profile Photo:</strong> If you upload a profile photo, it is stored in Firebase Storage.</li>
-            <li><strong>Camera Access:</strong> The App may request camera access solely for taking profile photos. We do not record or transmit camera data.</li>
-            <li><strong>Usage Analytics:</strong> We use Firebase Analytics and Microsoft Clarity to understand how users interact with the App. This data is anonymous and aggregated.</li>
-            <li><strong>Crash Reports:</strong> We use Firebase Crashlytics to collect crash logs to improve app stability. These logs do not contain personal information.</li>
-            <li><strong>Subscription Data:</strong> Subscription purchases are processed through Google Play. We use RevenueCat to manage subscriptions. We do not store your payment information.</li>
+          <li>
+            Account details you provide, such as your email address, display
+            name, sign-in method, and basic profile information.
+          </li>
+          <li>
+            Resume and profile content you create or edit in the app, including
+            contact details, work history, education, skills, summaries,
+            certificates, projects, profile photo, and similar career
+            information.
+          </li>
+          <li>
+            Imported materials you choose to process, including camera captures,
+            gallery images, PDF files, and Word files. During import, temporary
+            cached copies may be created on your device so the app can read and
+            process the file safely.
+          </li>
+          <li>
+            AI and OCR inputs and outputs, including resume text, job
+            descriptions, prompts, extracted text, and generated suggestions
+            when you use resume import, ATS analysis, AI writing, chat editing,
+            or cover-letter features.
+          </li>
+          <li>
+            App activity, device, and diagnostic information such as app
+            version, platform, basic usage events, and crash or troubleshooting
+            data where those features are enabled and supported.
+          </li>
         </ul>
+      </section>
 
+      <section class="section">
         <h2>2. How We Use Your Information</h2>
+        <p>We use your information to:</p>
         <ul>
-            <li>To provide and maintain the App's functionality</li>
-            <li>To create, store, and export your resumes</li>
-            <li>To perform AI-powered resume analysis and ATS scanning</li>
-            <li>To manage your subscription and premium features</li>
-            <li>To improve the App through analytics and crash reporting</li>
-            <li>To send notifications about your account (if enabled)</li>
+          <li>create, save, sync, export, and manage your resumes and profile data;</li>
+          <li>process imports from camera, gallery, PDF, and Word files;</li>
+          <li>extract text, parse resume fields, and prefill import preview screens;</li>
+          <li>
+            provide AI-powered features such as ATS analysis, resume suggestions,
+            AI editing, summary generation, and cover-letter generation;
+          </li>
+          <li>manage subscriptions, trial access, purchases, and feature limits;</li>
+          <li>
+            secure the app, prevent abuse, troubleshoot problems, and improve
+            reliability and product quality;
+          </li>
+          <li>respond to support requests and important service communications.</li>
         </ul>
+      </section>
 
-        <h2>3. Data Storage & Security</h2>
-        <p>Your data is stored in Google Firebase with industry-standard encryption. We use secure HTTPS connections for all data transfers. Your resume data is private and accessible only to you.</p>
-
-        <h2>4. Third-Party Services</h2>
-        <p>We use the following third-party services:</p>
+      <section class="section">
+        <h2>3. Storage, Sync, and Security</h2>
         <ul>
-            <li><strong>Google Firebase</strong> — Authentication, database, storage, analytics, crashlytics</li>
-            <li><strong>Google Play Billing</strong> — Subscription payment processing</li>
-            <li><strong>RevenueCat</strong> — Subscription management</li>
-            <li><strong>Groq AI</strong> — AI-powered resume analysis (resume content is sent for analysis)</li>
-            <li><strong>Microsoft Clarity</strong> — User behavior analytics</li>
+          <li>Guest-mode data is primarily stored locally on your device.</li>
+          <li>
+            If you create or use an account, your resume data, profile data,
+            usage state, and related content may be synced to cloud services
+            that power the app.
+          </li>
+          <li>
+            We use encrypted connections for data in transit and rely on
+            platform and provider security controls for stored data.
+          </li>
+          <li>
+            No security system is perfect, but we use reasonable
+            administrative, technical, and organizational measures designed to
+            protect your information.
+          </li>
         </ul>
+      </section>
 
-        <h2>5. Data Sharing</h2>
-        <p>We do <strong>not</strong> sell, trade, or share your personal data with third parties for marketing purposes. Data is shared only with the service providers listed above, solely to operate the App.</p>
-
-        <h2>6. Your Rights</h2>
+      <section class="section">
+        <h2>4. Third-Party Services and Processing</h2>
+        <p>To provide the app, we may use trusted service providers such as:</p>
         <ul>
-            <li>You can delete your account and all associated data at any time from the App settings</li>
-            <li>You can export your resumes as PDF files</li>
-            <li>You can request a copy of your data by contacting us</li>
+          <li>
+            Firebase services for authentication, database, storage, and backend
+            support;
+          </li>
+          <li>
+            OCR and document-processing infrastructure, including server-side
+            services used to extract text from images, PDFs, and Word files;
+          </li>
+          <li>
+            AI service providers, including Groq, to generate or analyze
+            resume-related content for features you actively use;
+          </li>
+          <li>
+            RevenueCat and the Apple App Store / Google Play for subscriptions,
+            purchase restoration, and billing-related status;
+          </li>
+          <li>
+            analytics, diagnostic, or notification providers where enabled by
+            the app configuration.
+          </li>
         </ul>
+        <p>
+          We do not sell your personal information to third parties for their
+          own marketing.
+        </p>
+      </section>
 
+      <section class="section">
+        <h2>5. Permissions and Your Choices</h2>
+        <p>
+          The app may request access to your camera, photo library, files, or
+          notifications only when those permissions are needed for a feature you
+          choose to use, such as importing a resume, selecting a profile photo,
+          or receiving reminders.
+        </p>
+        <p>
+          Depending on your location and applicable law, you may have the right
+          to access, review, edit, export, or delete information associated with
+          your account. To make a privacy-related request, contact us at
+          <a href="mailto:kenesrrd@gmail.com">kenesrrd@gmail.com</a>.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2>6. Data Retention</h2>
+        <p>
+          We keep information for as long as it is reasonably needed to provide
+          the service, maintain your account, meet legal obligations, resolve
+          disputes, and enforce our agreements.
+        </p>
+        <ul>
+          <li>
+            Guest data may remain on your device until you remove it, clear app
+            storage, or uninstall the app.
+          </li>
+          <li>
+            Account data may remain in our systems until you delete it or
+            request deletion, subject to limited backup, security,
+            fraud-prevention, and legal retention needs.
+          </li>
+        </ul>
+      </section>
+
+      <section class="section">
         <h2>7. Children's Privacy</h2>
-        <p>The App is not intended for children under 13. We do not knowingly collect data from children under 13.</p>
+        <p>
+          The app is not intended for children under 16, and we do not
+          knowingly collect personal information from children under 16. If you
+          believe a child has provided personal information to us, please
+          contact us so we can review and delete it where appropriate.
+        </p>
+      </section>
 
+      <section class="section">
         <h2>8. Changes to This Policy</h2>
-        <p>We may update this Privacy Policy from time to time. We will notify users of significant changes through the App.</p>
+        <p>
+          We may update this Privacy Policy from time to time to reflect product
+          changes, legal requirements, or operational updates. When required, we
+          will post the updated version in the app or otherwise notify you. Your
+          continued use of the app after the effective date of the update means
+          the revised policy will apply.
+        </p>
+      </section>
 
+      <section class="section">
         <h2>9. Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, contact us at:</p>
-        <p>📧 <a href="mailto:kenesrrd@gmail.com">kenesrrd@gmail.com</a></p>
-    </div>
+        <p class="contact-block">If you have questions about this Privacy Policy, contact us at:
+
+Email: <a href="mailto:kenesrrd@gmail.com">kenesrrd@gmail.com</a>
+Website: <a href="https://kenesrd.github.io/resume-builder-site/" target="_blank" rel="noopener noreferrer">https://kenesrd.github.io/resume-builder-site/</a></p>
+      </section>
+    </section>
+  </main>
 </body>
 </html>
