@@ -1,41 +1,87 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>LinkedIn Redirect</title>
-  <script>
-    (function () {
-      const params = new URLSearchParams(window.location.search);
-      const code = params.get("code");
-      const state = params.get("state");
-      const error = params.get("error");
-      const errorDescription = params.get("error_description");
-
-      let appUrl = "resumebuilder://linkedin";
-
-      if (error) {
-        const q = new URLSearchParams({
-          error,
-          error_description: errorDescription || ""
-        });
-        window.location.replace(appUrl + "?" + q.toString());
-        return;
-      }
-
-      if (code) {
-        const q = new URLSearchParams({
-          code,
-          state: state || ""
-        });
-        window.location.replace(appUrl + "?" + q.toString());
-        return;
-      }
-
-      document.body.innerText = "Authorization response not found.";
-    })();
-  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; connect-src https://us-central1-myresumeapp-831ab.cloudfunctions.net; style-src 'unsafe-inline'; script-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+  <title>LinkedIn Sign-In — AI CV Maker &amp; Resume Builder</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; display: flex; align-items: center; justify-content: center; min-height: 100vh; background: #0f0f23; color: #fff; text-align: center; padding: 20px; }
+    .container { max-width: 400px; }
+    .spinner { width: 40px; height: 40px; margin: 0 auto 20px; border: 4px solid rgba(255,255,255,.2); border-top-color: #0a66c2; border-radius: 50%; animation: spin .8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    h1 { font-size: 20px; margin-bottom: 8px; }
+    p { font-size: 14px; color: #aaa; margin-bottom: 20px; }
+    .error { color: #e85d5d; }
+    a { display: none; padding: 12px 24px; background: #0a66c2; color: #fff; text-decoration: none; border-radius: 8px; font-weight: 600; }
+  </style>
 </head>
 <body>
-Redirecting to app...
+  <div class="container">
+    <div class="spinner" id="spinner"></div>
+    <h1 id="heading">Completing sign-in…</h1>
+    <p id="message">You will return to AI CV Maker &amp; Resume Builder shortly.</p>
+    <a id="manualLink">Open AI CV Maker &amp; Resume Builder</a>
+  </div>
+  <script>
+    (function () {
+      'use strict';
+      var COMPLETE_URL = 'https://us-central1-myresumeapp-831ab.cloudfunctions.net/completeLinkedInAuthCallback';
+      var params = new URLSearchParams(window.location.search);
+      var code = params.get('code');
+      var state = params.get('state');
+      var oauthError = params.get('error');
+      window.history.replaceState(null, '', window.location.pathname);
+
+      var heading = document.getElementById('heading');
+      var message = document.getElementById('message');
+      var spinner = document.getElementById('spinner');
+      var manualLink = document.getElementById('manualLink');
+
+      function appUrl(values) {
+        return 'resumebuilder://linkedin?' + new URLSearchParams(values).toString();
+      }
+      function offerReturn(url, failed) {
+        manualLink.href = url;
+        manualLink.style.display = 'inline-block';
+        spinner.style.display = 'none';
+        if (failed) {
+          heading.textContent = 'Sign-in could not be completed';
+          heading.className = 'error';
+          message.textContent = 'Return to the app and try again.';
+        } else {
+          heading.textContent = 'Sign-in ready';
+          message.textContent = 'Return to AI CV Maker & Resume Builder to finish.';
+        }
+        window.location.replace(url);
+      }
+
+      if (oauthError || !code || !state) {
+        offerReturn(appUrl({ error: oauthError || 'authorization_failed', state: state || 'missing' }), true);
+        return;
+      }
+
+      fetch(COMPLETE_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: code, state: state }),
+        cache: 'no-store',
+        credentials: 'omit',
+        referrerPolicy: 'no-referrer'
+      }).then(function (response) {
+        if (!response.ok) throw new Error('callback_failed');
+        return response.json();
+      }).then(function (result) {
+        if (!result || typeof result.handoff !== 'string' || !/^[A-Za-z0-9_-]{43,128}$/.test(result.handoff)) {
+          throw new Error('handoff_invalid');
+        }
+        offerReturn(appUrl({ handoff: result.handoff, state: state }), false);
+      }).catch(function () {
+        offerReturn(appUrl({ error: 'authorization_failed', state: state }), true);
+      });
+    })();
+  </script>
 </body>
 </html>
